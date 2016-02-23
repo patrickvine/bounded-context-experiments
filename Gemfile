@@ -27,4 +27,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development, :test do
   gem 'rspec-rails'
   gem 'annotate'
+  gem 'simplecov', require: false
 end
