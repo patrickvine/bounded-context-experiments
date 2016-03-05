@@ -13,5 +13,26 @@
 require 'rails_helper'
 
 RSpec.describe User3, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "subclass it" do
+    it "validates name when valid" do
+      andy = User3.new(name: "Andy Lindeman")
+      expect(andy.valid?).to eq true
+    end
+
+    it "validates name when invalid" do
+      user = User3.new
+      expect(user.valid?).to eq false
+    end
+
+    it "OPTIONAL VALUDATION: validates email when User3::Invitable" do
+      andy = User3::Invitable.new(name: "Andy Lindeman")
+      expect(andy.valid?).to eq false
+    end
+
+    it "OPTIONAL VALUDATION: validates email" do
+      andy = User3::Invitable.new(name: "Andy Lindeman", email: 'andy@dot.com')
+      expect(andy.valid?).to eq true
+    end
+  end
+
 end
