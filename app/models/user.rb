@@ -12,4 +12,13 @@
 
 class User < ActiveRecord::Base
   validates :name, presence: true
+  validates :email, presence: true, if: :with_invitable
+
+  def validate_invitable
+    @with_invitable = true
+  end
+
+  def with_invitable
+    @with_invitable
+  end
 end

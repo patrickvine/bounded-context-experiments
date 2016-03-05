@@ -13,17 +13,45 @@
 require "rails_helper"
 
 RSpec.describe User, :type => :model do
-  it "validates name when valid" do
-    andy = User.create(name: "Andy Lindeman")
+  describe "iffy in model" do
+    it "validates name when valid" do
+      andy = User.new(name: "Andy Lindeman")
+      expect(andy.valid?).to eq true
+    end
 
-    expect(andy.valid?).to eq true
-    expect(User.last).to eq andy
+    it "validates name when invalid" do
+      user = User.new
+      expect(user.valid?).to eq false
+    end
+
+    it "OPTIONAL VALUDATION: validates email when with_invitable true" do
+      andy = User.new(name: "Andy Lindeman")
+      andy.validate_invitable
+      expect(andy.valid?).to eq false
+    end
   end
 
-  it "validates name when invalid" do
-    user = User.create
+  describe "iffy in mixin" do
 
-    expect(user.valid?).to eq false
-    expect(User.count).to eq 0
+  end
+
+  describe "optional mixin" do
+
+  end
+
+  describe "subclass it" do
+
+  end
+
+  describe "wrap and delegate it" do
+
+  end
+
+  describe "inject the validations" do
+
+  end
+
+  describe "invite command" do
+
   end
 end
