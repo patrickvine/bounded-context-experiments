@@ -11,4 +11,18 @@
 #
 
 class User7 < ActiveRecord::Base
+
+  validates :name, presence: true
+
+  validates_with User7Validator
+  attr_reader :validators
+
+  def add_validation validator
+    @validators ||= []
+    @validators << validator
+  end
+
+  def invite!
+    "Send a mail to #{name} #{email}"
+  end
 end
