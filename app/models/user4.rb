@@ -11,4 +11,5 @@
 #
 
 class User4 < ActiveRecord::Base
+  validates :name, presence: true
 end
