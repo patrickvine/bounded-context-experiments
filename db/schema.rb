@@ -11,7 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223062444) do
+ActiveRecord::Schema.define(version: 20160305193906) do
+
+  create_table "user2s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user3s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user4s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user5s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user6s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user7s", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "age",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
