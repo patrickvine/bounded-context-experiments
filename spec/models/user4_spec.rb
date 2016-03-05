@@ -35,5 +35,11 @@ RSpec.describe User4, type: :model do
       invitable_andy = InvitableUser4.new(andy)
       expect(invitable_andy.valid?).to eq true
     end
+
+    it "still validates name" do
+      andy = User4.new(email: 'andy@dot.com')
+      invitable_andy = InvitableUser4.new(andy)
+      expect(invitable_andy.valid?).to eq false
+    end
   end
 end
