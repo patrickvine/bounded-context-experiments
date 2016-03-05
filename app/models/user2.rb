@@ -11,4 +11,9 @@
 #
 
 class User2 < ActiveRecord::Base
+  validates :name, presence: true
+
+  def validate_invitable
+    self.singleton_class.send(:include,  User2::Invitable)
+  end
 end

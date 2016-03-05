@@ -13,5 +13,27 @@
 require 'rails_helper'
 
 RSpec.describe User2, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "optional mixin" do
+    it "validates name when valid" do
+      andy = User2.new(name: "Andy Lindeman")
+      expect(andy.valid?).to eq true
+    end
+
+    it "validates name when invalid" do
+      user = User2.new
+      expect(user.valid?).to eq false
+    end
+
+    it "OPTIONAL VALUDATION: validates email when with_invitable true" do
+      andy = User2.new(name: "Andy Lindeman")
+      andy.validate_invitable
+      expect(andy.valid?).to eq false
+    end
+
+    it "OPTIONAL VALUDATION: validates email" do
+      andy = User2.new(name: "Andy Lindeman", email: 'andy@dot.com')
+      andy.validate_invitable
+      expect(andy.valid?).to eq true
+    end
+  end
 end
